@@ -1,0 +1,75 @@
+$label-color: #3c6382;
+$category-info-color: #303952;
+$inputs-border-color: #c8d6e5;
+
+.form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 60px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  &__info-category {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20PX;
+    letter-spacing: 0.02em;
+    color: $category-info-color;
+
+    &:not(:first-child) {
+      margin-top: 25px;
+    }
+  }
+
+  &__col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__group {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 17px;
+    }
+
+    &--col-2, &--col-3 {
+      display: grid;
+    }
+
+    &--col-2 {
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--col-3 {
+      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__label {
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: $label-color;
+    letter-spacing: 0.02em;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  select {
+    width: 100%;
+    outline: none;
+    padding: 12px 14px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid $inputs-border-color;
+  }
+}

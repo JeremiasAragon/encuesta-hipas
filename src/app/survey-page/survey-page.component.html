@@ -1,1 +1,175 @@
-<p>survey-page works!</p>
+<form class="form">
+  <p class="form__info-category">1. Información personal</p>
+
+  <div class="form__group">
+    <div class="form__col">
+      <label for="nombre" class="form__label">Nombre completo</label>
+      <input type="text" id="nombre">
+    </div>
+  </div>
+
+  <div class="form__group form__group--col-2">
+    <div class="form__col">
+      <label for="fecha-nacimiento" class="form__label">Fecha de nacimiento</label>
+      <input type="date" id="fecha-nacimiento">
+    </div>
+    <div class="form__col">
+      <label for="edad" class="form__label">Edad</label>
+      <input type="number" id="edad">
+    </div>
+  </div>
+
+  <div class="form__group form__group--col-3">
+    <div class="form__col">
+      <label for="telefono" class="form__label">Teléfono</label>
+      <input type="number" id="telefono">
+    </div>
+    <div class="form__col">
+      <label for="vive-con-padres" class="form__label">¿Vives con tus padres?</label>
+      <select id="vive-con-padres">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí, vivo con ellos</option>
+        <option value="">No, vivo aparte</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="estado-civil" class="form__label">Estado civil</label>
+      <select id="estado-civil">
+        <option value="">Seeleccione...</option>
+        <option value="">Soltero/a</option>
+        <option value="">Casado/a</option>
+        <option value="">Separado/a</option>
+        <option value="">divorciado/a</option>
+        <option value="">viudo/a</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="form__info-category">2. Información de residencia</p>
+
+  <div class="form__group form__group--col-2">
+    <div class="form__col">
+      <label for="zona" class="form__label">Zona del distrito</label>
+      <select id="zona">
+        <option value="">Seeleccione...</option>
+        <option value="">Zona 1</option>
+        <option value="">Zona 2</option>
+        <option value="">Zona 3</option>
+        <option value="">Zona 4</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="ciudad" class="form__label">Ciudad / Municipio</label>
+      <select id="ciudad">
+        <option value="">Seeleccione...</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="form__info-category">3. Información espitirual</p>
+
+  <div class="form__group form__group--col-3">
+    <div class="form__col">
+      <label for="bautismo" class="form__label">¿Eres bautizado/a?</label>
+      <select id="bautismo">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="espiritu-santo" class="form__label">¿Recibiste el espíritu santo?</label>
+      <select id="espiritu-santo">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="apartado" class="form__label">¿Estás apartado/a?</label>
+      <select id="apartado">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="form__info-category">4. Información de servicio</p>
+
+  <div class="form__group form__group--col-2">
+    <div class="form__col">
+      <label for="sirve" class="form__label">¿Sirves a Dios en alguna directiva?</label>
+      <select id="sirve">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="directivas" class="form__label">¿En cual(es)?</label>
+      <select id="directivas">
+        <option value="">Seeleccione...</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="form__info-category">5. Información de educación</p>
+
+  <div class="form__group form__group--col-3">
+    <div class="form__col">
+      <label for="nivel-educativo" class="form__label">Nivel educativo</label>
+      <select id="nivel-educativo">
+        <option value="">Seeleccione...</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="estudia" class="form__label">¿Actualmente estudias?</label>
+      <select id="estudia">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="titulo" class="form__label">Título obtenido / al que opta</label>
+      <input type="text" id="titulo">
+    </div>
+  </div>
+
+  <p class="form__info-category">6. Talentos</p>
+
+  <div class="form__group form__group--col-3">
+    <div class="form__col">
+      <label for="canta" class="form__label">¿Sabes cantar?</label>
+      <select id="canta">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="instrumeto" class="form__label">¿Tocas algún instrumento?</label>
+      <select id="instrumeto">
+        <option value="">Seeleccione...</option>
+        <option value="">Sí</option>
+        <option value="">No</option>
+      </select>
+    </div>
+    <div class="form__col">
+      <label for="instrumentos" class="form__label">¿Cual(es)?</label>
+      <select id="instrumentos">
+        <option value="">Seeleccione...</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form__buttons">
+    <button class="form__buttons__cancel-button">
+      Cancelar
+    </button>
+    <button class="form__buttons__send-button">
+      Enviar
+    </button>
+  </div>
+</form>
