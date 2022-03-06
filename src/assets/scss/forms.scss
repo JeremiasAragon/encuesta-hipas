@@ -42,11 +42,19 @@ $inputs-border-color: #c8d6e5;
     }
 
     &--col-2 {
+      .form__col {
+        max-width: 340px;
+      }
+
       gap: 20px;
       grid-template-columns: repeat(2, 1fr);
     }
 
     &--col-3 {
+      .form__col {
+        max-width: 226.67px;
+      }
+
       gap: 10px;
       grid-template-columns: repeat(3, 1fr);
     }
@@ -56,7 +64,7 @@ $inputs-border-color: #c8d6e5;
     line-height: 1;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
     color: $label-color;
     letter-spacing: 0.02em;
   }
@@ -101,18 +109,5 @@ $inputs-border-color: #c8d6e5;
         color: $button-border-color;
       }
     }
-  }
-
-  input[type="text"],
-  input[type="date"],
-  input[type="number"],
-  select {
-    width: 100%;
-    outline: none;
-    line-height: 1;
-    font-size: 14px;
-    padding: 12px 14px;
-    border-radius: 5px;
-    border: 1px solid $inputs-border-color;
   }
 }
