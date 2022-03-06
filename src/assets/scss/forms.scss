@@ -1,5 +1,6 @@
 $label-color: #3c6382;
 $category-info-color: #303952;
+$button-border-color: #303952;
 $inputs-border-color: #c8d6e5;
 
 .form {
@@ -60,15 +61,57 @@ $inputs-border-color: #c8d6e5;
     letter-spacing: 0.02em;
   }
 
+  &__buttons {
+    gap: 25px;
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: flex-end;
+
+    &__cancel-button, &__send-button {
+      outline: none;
+      line-height: 1;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 15px 32px;
+      transition: all .3s;
+      letter-spacing: 0.02em;
+      border: 1px solid $button-border-color;
+    }
+
+    &__cancel-button {
+      background-color: transparent;
+
+      &:hover {
+        color: #fff;
+        background-color: $button-border-color;
+      }
+    }
+
+    &__send-button {
+      color: #fff;
+      background-color: $button-border-color;
+      box-shadow: 2px 2px 7px rgba(0, 0, 0, .1);
+
+      &:hover {
+        background-color: #fff;
+        color: $button-border-color;
+      }
+    }
+  }
+
   input[type="text"],
   input[type="date"],
   input[type="number"],
   select {
     width: 100%;
     outline: none;
-    padding: 12px 14px;
     line-height: 1;
     font-size: 14px;
+    padding: 12px 14px;
     border-radius: 5px;
     border: 1px solid $inputs-border-color;
   }
