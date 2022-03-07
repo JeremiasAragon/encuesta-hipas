@@ -3,16 +3,20 @@ $category-info-color: #303952;
 $button-border-color: #303952;
 $inputs-border-color: #c8d6e5;
 
+$form-width: 750px;
+$form-col2-gap: 10px;
+$form-col3-gap: 10px;
+
 .form {
-  width: 700px;
   margin: 0 auto;
   padding: 60px 0;
+  width: $form-width;
 
   display: flex;
   flex-direction: column;
 
   &__info-category {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 20PX;
     letter-spacing: 0.02em;
@@ -28,6 +32,10 @@ $inputs-border-color: #c8d6e5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &__error {
+      margin-top: 5px;
+    }
   }
 
   &__group {
@@ -43,26 +51,26 @@ $inputs-border-color: #c8d6e5;
 
     &--col-2 {
       .form__col {
-        max-width: 340px;
+        max-width: calc(#{$form-width} / 2 - #{$form-col2-gap});
       }
 
-      gap: 20px;
+      gap: $form-col2-gap;
       grid-template-columns: repeat(2, 1fr);
     }
 
     &--col-3 {
       .form__col {
-        max-width: 226.67px;
+        max-width: calc(#{$form-width} / 3 - #{$form-col3-gap});
       }
 
-      gap: 10px;
+      gap: $form-col3-gap;
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &__label {
     line-height: 1;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     margin-bottom: 7px;
     color: $label-color;

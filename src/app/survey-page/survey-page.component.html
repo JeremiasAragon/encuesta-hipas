@@ -3,40 +3,52 @@
 
   <div class="form__group">
     <div class="form__col">
-      <label for="nombre" class="form__label">Nombre completo</label>
+      <label for="nombre" class="form__label">Nombre completo *</label>
       <input id="nombre"
              pInputText
              formControlName="nombreCompleto">
+      <small class="p-error form__col__error block"
+             *ngIf="nombreCompleto.errors?.required && nombreCompleto.dirty">
+        Este campo es requerido
+      </small>
     </div>
   </div>
 
   <div class="form__group form__group--col-2">
     <div class="form__col">
-      <label for="fecha-nacimiento" class="form__label">Fecha de nacimiento</label>
+      <label for="fecha-nacimiento" class="form__label">Fecha de nacimiento *</label>
       <p-calendar id="fecha-nacimiento"
                   formControlName="fechaNacimiento">
       </p-calendar>
+      <small class="p-error form__col__error block"
+             *ngIf="fechaNacimiento.errors?.required && fechaNacimiento.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="edad" class="form__label">Edad</label>
+      <label for="edad" class="form__label">Edad *</label>
       <p-inputNumber id="edad"
                      [useGrouping]="false"
                      [readonly]="true"
                      formControlName="edad">
       </p-inputNumber>
+      <small class="p-error form__col__error block"
+             *ngIf="edad.errors?.required && edad.touched">
+        Este campo es requerido
+      </small>
     </div>
   </div>
 
   <div class="form__group form__group--col-3">
     <div class="form__col">
-      <label for="telefono" class="form__label">Teléfono</label>
+      <label for="telefono" class="form__label">Teléfono <small>(opcional)</small></label>
       <p-inputNumber id="telefono"
                      [useGrouping]="false"
                      formControlName="telefono">
       </p-inputNumber>
     </div>
     <div class="form__col">
-      <label for="vive-con-padres" class="form__label">¿Vives con tus padres?</label>
+      <label for="vive-con-padres" class="form__label">¿Vives con tus padres? *</label>
       <p-dropdown id="vive-con-padres"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -44,9 +56,13 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="viveConPadres">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="viveConPadres.errors?.required && viveConPadres.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="estado-civil" class="form__label">Estado civil</label>
+      <label for="estado-civil" class="form__label">Estado civil *</label>
       <p-dropdown id="estado-civil"
                   placeholder="Seleccione..."
                   optionLabel="descripcion"
@@ -54,6 +70,10 @@
                   [options]="dropdownOptions.estadosCiviles"
                   formControlName="estadoCivil">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="estadoCivil.errors?.required && estadoCivil.dirty">
+        Este campo es requerido
+      </small>
     </div>
   </div>
 
@@ -61,7 +81,7 @@
 
   <div class="form__group form__group--col-2">
     <div class="form__col">
-      <label for="zona" class="form__label">Zona del distrito</label>
+      <label for="zona" class="form__label">Zona del distrito *</label>
       <p-dropdown id="zona"
                   placeholder="Seleccione..."
                   [options]="dropdownOptions.zonas"
@@ -70,9 +90,13 @@
                   (onChange)="getZoneCities($event)"
                   formControlName="zona">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="zona.errors?.required && zona.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="ciudad" class="form__label">Ciudad / Municipio</label>
+      <label for="ciudad" class="form__label">Ciudad / Municipio *</label>
       <p-dropdown id="ciudad"
                   placeholder="Seleccione..."
                   filterPlaceholder="Nombre de la ciudad / municipio"
@@ -86,6 +110,10 @@
                   emptyFilterMessage="No se encontraron resultados"
                   formControlName="ciudad">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="ciudad.errors?.required && ciudad.dirty">
+        Este campo es requerido
+      </small>
     </div>
   </div>
 
@@ -93,7 +121,7 @@
 
   <div class="form__group form__group--col-3">
     <div class="form__col">
-      <label for="bautismo" class="form__label">¿Eres bautizado(a)?</label>
+      <label for="bautismo" class="form__label">¿Eres bautizado(a)? *</label>
       <p-dropdown id="bautismo"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -101,9 +129,13 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="esBautizado">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="esBautizado.errors?.required && esBautizado.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="espiritu-santo" class="form__label">¿Recibiste el espíritu santo?</label>
+      <label for="espiritu-santo" class="form__label">¿Recibiste el espíritu santo? *</label>
       <p-dropdown id="espiritu-santo"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -111,9 +143,13 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="recibioEspirituSanto">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="recibioEspirituSanto.errors?.required && recibioEspirituSanto.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="apartado" class="form__label">¿Estás apartado(a)?</label>
+      <label for="apartado" class="form__label">¿Estás apartado(a)? *</label>
       <p-dropdown id="apartado"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -121,6 +157,10 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="esApartado">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="esApartado.errors?.required && esApartado.dirty">
+        Este campo es requerido
+      </small>
     </div>
   </div>
 
@@ -128,7 +168,7 @@
 
   <div class="form__group form__group--col-2">
     <div class="form__col">
-      <label for="sirve" class="form__label">¿Sirves a Dios en alguna directiva?</label>
+      <label for="sirve" class="form__label">¿Sirves a Dios en alguna directiva? *</label>
       <p-dropdown id="sirve"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -136,6 +176,10 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="sirveEnDirectiva">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="sirveEnDirectiva.errors?.required && sirveEnDirectiva.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
       <label for="directivas" class="form__label">¿En cual(es)?</label>
@@ -156,9 +200,9 @@
 
   <p class="form__info-category">5. Información de educación</p>
 
-  <div class="form__group form__group--col-3">
+  <div class="form__group form__group--col-2">
     <div class="form__col">
-      <label for="nivel-educativo" class="form__label">Nivel educativo</label>
+      <label for="nivel-educativo" class="form__label">Nivel educativo *</label>
       <p-dropdown id="nivel-educativo"
                   placeholder="Seleccione..."
                   optionLabel="nombre"
@@ -166,9 +210,13 @@
                   [options]="dropdownOptions.nivelesEducativos"
                   formControlName="nivelEducativo">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="nivelEducativo.errors?.required && nivelEducativo.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="estudia" class="form__label">¿Actualmente estudias?</label>
+      <label for="estudia" class="form__label">¿Actualmente estudias? *</label>
       <p-dropdown id="estudia"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -176,9 +224,16 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="estaEstudiando">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="estaEstudiando.errors?.required && estaEstudiando.dirty">
+        Este campo es requerido
+      </small>
     </div>
+  </div>
+
+  <div class="form__group">
     <div class="form__col">
-      <label for="titulo" class="form__label">Título obtenido / al que opta</label>
+      <label for="titulo" class="form__label">Título obtenido / al que opta <small>(opcional)</small></label>
       <input id="titulo" pInputText formControlName="titulo">
     </div>
   </div>
@@ -187,7 +242,7 @@
 
   <div class="form__group form__group--col-3">
     <div class="form__col">
-      <label for="canta" class="form__label">¿Sabes cantar?</label>
+      <label for="canta" class="form__label">¿Sabes cantar? *</label>
       <p-dropdown id="canta"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
@@ -195,15 +250,23 @@
                   [options]="dropdownOptions.siNo"
                   formControlName="sabeCantar">
       </p-dropdown>
+      <small class="p-error form__col__error block"
+             *ngIf="sabeCantar.errors?.required && sabeCantar.dirty">
+        Este campo es requerido
+      </small>
     </div>
     <div class="form__col">
-      <label for="instrumeto" class="form__label">¿Tocas algún instrumento?</label>
+      <label for="instrumeto" class="form__label">¿Tocas algún instrumento? *</label>
       <p-dropdown id="instrumeto"
                   placeholder="Seleccione..."
                   optionLabel="respuesta"
                   optionValue="valor"
                   [options]="dropdownOptions.siNo"
                   formControlName="tocaInstrumentos">
+        <small class="p-error form__col__error block"
+               *ngIf="tocaInstrumentos.errors?.required && tocaInstrumentos.dirty">
+          Este campo es requerido
+        </small>
       </p-dropdown>
     </div>
     <div class="form__col">
@@ -224,7 +287,7 @@
   </div>
 
   <div class="form__buttons">
-    <input class="form__buttons__cancel-button" type="reset" value="Cancelar">
+    <input class="form__buttons__cancel-button" type="reset" value="Limpiar">
     <input class="form__buttons__send-button" type="submit" value="Enviar">
   </div>
 </form>
