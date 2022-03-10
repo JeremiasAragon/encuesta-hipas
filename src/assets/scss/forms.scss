@@ -1,11 +1,4 @@
-$label-color: #3c6382;
-$category-info-color: #303952;
-$button-border-color: #303952;
-$inputs-border-color: #c8d6e5;
-
-$form-width: 750px;
-$form-col2-gap: 10px;
-$form-col3-gap: 10px;
+@import "src/assets/scss/variables";
 
 .form {
   margin: 0 auto;
@@ -86,35 +79,28 @@ $form-col3-gap: 10px;
     justify-content: flex-end;
 
     &__cancel-button, &__send-button {
-      outline: none;
-      line-height: 1;
-      cursor: pointer;
-      font-size: 17px;
-      font-weight: 500;
-      border-radius: 5px;
-      padding: 15px 32px;
-      transition: all .3s;
-      letter-spacing: 0.02em;
-      border: 1px solid $button-border-color;
+      @include button;
     }
 
     &__cancel-button {
+      color: $button-cancel-color;
       background-color: transparent;
 
       &:hover {
         color: #fff;
-        background-color: $button-border-color;
+        border: 1px solid $button-cancel-color;
+        background-color: $button-cancel-color;
       }
     }
 
     &__send-button {
       color: #fff;
-      background-color: $button-border-color;
+      background-color: $button-success-color;
       box-shadow: 2px 2px 7px rgba(0, 0, 0, .1);
 
       &:hover {
-        background-color: #fff;
-        color: $button-border-color;
+        color: #fff;
+        background-color: #17a781;
       }
     }
   }

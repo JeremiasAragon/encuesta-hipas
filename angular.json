@@ -34,6 +34,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/animate.css/animate.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
@@ -105,6 +106,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/animate.css/animate.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",

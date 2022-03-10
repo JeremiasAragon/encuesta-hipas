@@ -1,0 +1,22 @@
+$label-color: #3c6382;
+$category-info-color: #303952;
+$inputs-border-color: #c8d6e5;
+$button-success-color: #1dd1a1;
+$button-cancel-color: #ee5253;
+
+$form-width: 750px;
+$form-col2-gap: 10px;
+$form-col3-gap: 10px;
+
+@mixin button {
+  outline: none;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 15px 32px;
+  transition: all .3s;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+}

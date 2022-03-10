@@ -13,6 +13,12 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ReactiveFormsModule} from "@angular/forms";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     CalendarModule,
     DropdownModule,
     MultiSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireFunctionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

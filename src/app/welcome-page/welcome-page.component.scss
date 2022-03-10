@@ -1,0 +1,48 @@
+@import "src/assets/scss/variables";
+
+.welcome {
+  width: 740px;
+  margin: 0 auto;
+  padding: 70px 0;
+
+  &__heading {
+    color: #222f3e;
+    font-size: 100px;
+    line-height: 1.2;
+    font-weight: 900;
+    margin-bottom: 80px;
+  }
+
+  &__text {
+    color: #576574;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  &__time {
+    color: #fff;
+    font-size: 13px;
+    padding: 7px 14px;
+    margin-left: 10px;
+    width: max-content;
+    border-radius: 40px;
+    display: inline-block;
+    background-color: #0abde3;
+  }
+
+  &__start {
+    @include button;
+    color: #fff;
+    display: block;
+    margin-top: 80px;
+    background-color: $button-success-color;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, .1);
+
+    &:hover {
+      color: #fff;
+      background-color: #17a781;
+    }
+  }
+}
