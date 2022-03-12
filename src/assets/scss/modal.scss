@@ -1,0 +1,44 @@
+.modal-content {
+  padding: 10px 10px 24px;
+  border-radius: 19px;
+  position: relative;
+
+  .modal-header {
+    border: unset;
+
+    .close {
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+  }
+
+  .modal-header__icon {
+    position: relative;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .modal-header__title{
+    position: relative;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .modal-body {
+    width: 500px;
+    max-width: 100%;
+  }
+}
+
+.form-modal .modal-dialog.modal-dialog-centered {
+  width: fit-content !important;
+}
+
+.form-modal .form {
+  margin: 0 !important;
+}

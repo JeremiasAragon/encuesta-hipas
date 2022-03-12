@@ -20,13 +20,18 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 import {NgxSpinnerModule} from "ngx-spinner";
+import {ImageFileInputComponent} from './image-file-input/image-file-input.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ImageCropperModule} from "ngx-image-cropper";
+import {MatSliderModule} from "@angular/material/slider";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    SurveyPageComponent
+    SurveyPageComponent,
+    ImageFileInputComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,9 @@ import {NgxSpinnerModule} from "ngx-spinner";
     BrowserAnimationsModule,
     InputTextModule,
     InputNumberModule,
+    ImageCropperModule,
     CalendarModule,
+    MatSliderModule,
     DropdownModule,
     NgxSpinnerModule,
     MultiSelectModule,
@@ -43,7 +50,8 @@ import {NgxSpinnerModule} from "ngx-spinner";
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    NgbModule
   ],
   providers: [
     { provide: USE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8082] : undefined }

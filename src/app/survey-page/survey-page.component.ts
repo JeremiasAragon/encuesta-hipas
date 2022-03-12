@@ -23,6 +23,7 @@ export class SurveyPageComponent implements OnInit {
   zonas = answers.zonas;
   dropdownOptions = answers;
   ciudadesFiltradas: any[] = [];
+  image: string | undefined = '';
 
   get zona(): AbstractControl { return this.form.get('zona'); }
   get edad(): AbstractControl { return this.form.get('edad'); }
@@ -54,6 +55,7 @@ export class SurveyPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      photo: [''],
       nombreCompleto: ['', Validators.required],
       fechaNacimiento: [null, Validators.required],
       edad: [null, Validators.required],
@@ -99,6 +101,12 @@ export class SurveyPageComponent implements OnInit {
           this.form.controls['instrumentos'].enable();
         }
       });
+  }
+
+  photoPerson($event:any){
+    this.form.patchValue({
+      photo: $event
+    })
   }
 
   calculateAge(birthDate: any) {
