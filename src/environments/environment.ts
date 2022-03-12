@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  useEmulators: true,
   firebase: {
     apiKey: "AIzaSyB5mnbvbxfEUQt6IruWRrpHStugSpW8ffw",
     authDomain: "encuesta-hipas.firebaseapp.com",

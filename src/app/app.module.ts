@@ -15,10 +15,11 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFirestoreModule, USE_EMULATOR} from "@angular/fire/compat/firestore";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
+
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
     AngularFireAuthModule,
     AngularFireFunctionsModule
   ],
-  providers: [],
+  providers: [
+    { provide: USE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8082] : undefined }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
