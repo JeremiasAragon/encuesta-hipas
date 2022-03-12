@@ -484,6 +484,9 @@ export const nivelesEducativos = [
     nombre: 'Primaria'
   },
   {
+    nombre: 'Secundaria'
+  },
+  {
     nombre: 'Técnico'
   },
   {
