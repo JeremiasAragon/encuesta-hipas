@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import * as answers from './answers.data';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import Swal from 'sweetalert2'
+import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import {Survey} from "../Models/survey.interface";
+import firebase from "firebase/compat/app";
+import {SurveyService} from "../services/survey.service";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {Router} from "@angular/router";
+import {catchError, tap} from "rxjs/operators";
+import {throwError} from "rxjs";
+import {AlertsService} from "../services/alerts.service";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-survey-page',
@@ -11,6 +19,7 @@ import Swal from 'sweetalert2'
 export class SurveyPageComponent implements OnInit {
 
   form!: any;
+  surveyId!: string;
   zonas = answers.zonas;
   dropdownOptions = answers;
   ciudadesFiltradas: any[] = [];
@@ -32,12 +41,21 @@ export class SurveyPageComponent implements OnInit {
   get recibioEspirituSanto(): AbstractControl { return this.form.get('recibioEspirituSanto'); }
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService,
+    private surveyService: SurveyService,
+    private alertsService: AlertsService,
+    private angularFirestoreService: AngularFirestore
+  ) {
+    this.surveyId = this.angularFirestoreService.createId();
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       nombreCompleto: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
+      fechaNacimiento: [null, Validators.required],
       edad: [null, Validators.required],
       telefono: [null],
       viveConPadres: [null, Validators.required],
@@ -111,25 +129,46 @@ export class SurveyPageComponent implements OnInit {
 
   sendData() {
     if(this.form.invalid) {
-      Swal.fire({
-        title: '¡Error!',
-        text: 'Verifica la información faltante e intenta nuevamente',
-        icon: 'error',
-        confirmButtonText: 'Entendido'
-      });
+      this.spinner.hide();
+
+      this.alertsService.errorMessage(
+        '¡Error!',
+        'Por favor, verifique la información faltante e intente nuevamente'
+      );
 
       return;
     }
 
-    console.log(this.form.value);
+    this.spinner.show();
 
-    Swal.fire({
-      title: '¡Listo!',
-      text: 'Tu información ha sido registrada con éxito',
-      icon: 'success',
-      confirmButtonText: 'Entendido'
-    });
+    const newSurvey = { ...this.form.value } as Survey;
+    newSurvey.fechaNacimiento = firebase.firestore.Timestamp.fromDate(this.form.value.fechaNacimiento);
 
-    this.form.reset();
+    this.surveyService.createSurvey(newSurvey, this.surveyId)
+      .pipe(
+        tap(() => {
+          this.spinner.hide();
+
+          this.alertsService.successMessage(
+            '¡Listo!',
+            'Tu información ha sido registrada correctamente'
+          );
+
+          this.form.reset();
+
+          this.router.navigate(['/inicio']);
+        }),
+        catchError(error => {
+          this.spinner.hide();
+
+          this.alertsService.errorMessage(
+            '¡Error!',
+            'No pudimos guardar tu información. Por favor, vuelve a intentarlo más tarde'
+          );
+
+          return throwError(error);
+        })
+      )
+      .subscribe();
   }
 }

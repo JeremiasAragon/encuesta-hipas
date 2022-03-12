@@ -19,6 +19,7 @@ import {AngularFirestoreModule, USE_EMULATOR} from "@angular/fire/compat/firesto
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
     InputNumberModule,
     CalendarModule,
     DropdownModule,
+    NgxSpinnerModule,
     MultiSelectModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
